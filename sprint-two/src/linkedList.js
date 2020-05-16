@@ -4,12 +4,14 @@ var LinkedList = function() {
   list.tail = null;
 
   list.addToTail = function(value) {
-    if (this.head === null) {
-      this.head = Node(value);
-      this.tail = this.head;
+    var node = Node(value);
+    // if no nodes, head and tail point to new node
+    if (this.head === null && this.tail === null) {
+      this.head = node;
+      this.tail = node;
     } else {
-      this.tail.next = Node(value);
-      this.tail = this.tail.next;
+      this.tail.next = node;
+      this.tail = node;
     }
   };
 
